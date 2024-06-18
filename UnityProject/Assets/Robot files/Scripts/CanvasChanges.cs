@@ -66,9 +66,9 @@ public class CanvasChanges : MonoBehaviour
     // Red cube position
     public void Reset_RedCubeXYZ()
     {
-        redcube_pos_x.text = "0.414";
-        redcube_pos_y.text = "-0.196";
-        redcube_pos_z.text = "0.1193";
+        redcube_pos_x.text = "414";
+        redcube_pos_y.text = "-196";
+        redcube_pos_z.text = "119.3";
         RedCube.transform.localPosition = new Vector3(-float.Parse(redcube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(redcube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(redcube_pos_y.text, CultureInfo.InvariantCulture));
     }
     // Red cube Rotation
@@ -83,9 +83,9 @@ public class CanvasChanges : MonoBehaviour
     // Green cube position
     public void Reset_GreenCubeXYZ()
     {
-        greencube_pos_x.text = "0.414";
-        greencube_pos_y.text = "-0.196";
-        greencube_pos_z.text = "0.1993";
+        greencube_pos_x.text = "414";
+        greencube_pos_y.text = "-196";
+        greencube_pos_z.text = "199.3";
         GreenCube.transform.localPosition = new Vector3(-float.Parse(greencube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(greencube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(greencube_pos_y.text, CultureInfo.InvariantCulture));
     }
     // Green cube Rotation
@@ -100,9 +100,9 @@ public class CanvasChanges : MonoBehaviour
     // BLue cube position
     public void Reset_BlueCubeXYZ()
     {
-        bluecube_pos_x.text = "0.414";
-        bluecube_pos_y.text = "-0.196";
-        bluecube_pos_z.text = "0.039";
+        bluecube_pos_x.text = "414";
+        bluecube_pos_y.text = "-196";
+        bluecube_pos_z.text = "390";
         BlueCube.transform.localPosition = new Vector3(-float.Parse(bluecube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(bluecube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(bluecube_pos_y.text, CultureInfo.InvariantCulture));
     }
     // Blue cube Rotation

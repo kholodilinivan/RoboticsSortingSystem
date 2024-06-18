@@ -7,30 +7,30 @@ using UnityEditorInternal;
 
 public class InverseKin : MonoBehaviour
 {
-    private float[] q = new float[6]; // 关节角数组（以弧度为单位）
+    private float[] q = new float[6]; // start joints orientation
 
-    private float[] qm = new float[6]; // 关节角数组（以弧度为单位）
+    private float[] qm = new float[6]; // trajectory
 
     public float q01, q02, q03, q04, q05, q06;
 
     private float thetha1, thetha2, thetha3, thetha4, thetha5, thetha6;
 
-    //误差补值
-    public float ox = 0.197f; // 3.085
-    public float oy = 0.462f; // 1.38
-    public float oz = 0.21f; // 2.32
+    // point to calculate ik
+    public float ox = 627.86f; 
+    public float oy = 1387.26f; 
+    public float oz = 112.73f; 
 
     public bool RobotOperate;
 
-    private float Tm= 40;//运行分解步数
+    private float Tm= 40;// trajectory steps
 
-    // 机械臂参数
-    private float L1 = 0.0411f;
-    private float L2 = 0.1924f;
-    private float L3 = 0.3163f;
-    private float L4 = 0.0759f;
-    private float L5 = 0.306f;
-    private float L6 = 0.2327f;
+    // links length
+    private float L1 = 123.32f;
+    private float L2 = 577.32f;
+    private float L3 = 949.04f;
+    private float L4 = 227.79f;
+    private float L5 = 918.09f;
+    private float L6 = 698.24f;
 
     // to calculate inverse kin manually
     public InputField NewX, NewY, NewZ;
@@ -59,9 +59,9 @@ public class InverseKin : MonoBehaviour
         }
     }
 
-    public void CalculateInverseKinematics()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void CalculateInverseKinematics()
     {
-        // 已知目标点矩阵 T
+        // Transformation matrix of the ik point
         /*
         Matrix4x4 T = new Matrix4x4(new Vector4(1, 0, 0, ox),
                                     new Vector4(0, 0, 1, oy),
@@ -74,15 +74,13 @@ public class InverseKin : MonoBehaviour
                                     new Vector4( 0, 0, -1, oz),
                                     new Vector4( 0, 0,  0, 1));
 
-        // 进行关节角计算
-
-        // 获取矩阵 R 和向量 o
+        // Rotation matrix of the ik point
         Matrix4x4 R = new Matrix4x4(new Vector4(T[0, 0], T[1, 0], T[2, 0], 0),
                                     new Vector4(T[0, 1], T[1, 1], T[2, 1], 0),
                                     new Vector4(T[0, 2], T[1, 2], T[2, 2], 0),
                                     new Vector4(0, 0, 0, 1));
 
-        Vector3 o = new Vector3(ox, oy, oz);//目标点位置坐标
+        Vector3 o = new Vector3(ox, oy, oz); // center point calculation
         float xc = o.x - L6 * R[2, 0];
         float yc = o.y - L6 * R[2, 1];
         float zc = o.z - L6 * R[2, 2];
@@ -111,33 +109,33 @@ public class InverseKin : MonoBehaviour
         // calculate thetha4, thetha5, thetha6
 
         float alpha1 = 90, alpha2 = 0, alpha3 = 90, r1 = L1, r2 = L3, r3 = L4, d1 = L2, d2 = 0, d3 = 0;
-        // 计算 T1
+        // matrix T1
         Matrix4x4 T1 = new Matrix4x4(new Vector4(Mathf.Cos(thetha1 * Mathf.Deg2Rad), -Mathf.Sin(thetha1 * Mathf.Deg2Rad) * Mathf.Cos(alpha1 * Mathf.Deg2Rad), Mathf.Sin(thetha1 * Mathf.Deg2Rad) * Mathf.Sin(alpha1 * Mathf.Deg2Rad), r1 * Mathf.Cos(thetha1 * Mathf.Deg2Rad)),
                                     new Vector4(Mathf.Sin(thetha1 * Mathf.Deg2Rad), Mathf.Cos(thetha1 * Mathf.Deg2Rad) * Mathf.Cos(alpha1 * Mathf.Deg2Rad), -Mathf.Cos(thetha1 * Mathf.Deg2Rad) * Mathf.Sin(alpha1 * Mathf.Deg2Rad), r1 * Mathf.Sin(thetha1 * Mathf.Deg2Rad)),
                                     new Vector4(0, Mathf.Sin(alpha1 * Mathf.Deg2Rad), Mathf.Cos(alpha1 * Mathf.Deg2Rad), d1),
                                     new Vector4(0, 0, 0, 1));
 
-        // 计算 T2
+        // matrix T2
         Matrix4x4 T2 = new Matrix4x4(new Vector4(Mathf.Cos(thetha2 * Mathf.Deg2Rad), -Mathf.Sin(thetha2 * Mathf.Deg2Rad) * Mathf.Cos(alpha2 * Mathf.Deg2Rad), Mathf.Sin(thetha2 * Mathf.Deg2Rad) * Mathf.Sin(alpha2 * Mathf.Deg2Rad), r2 * Mathf.Cos(thetha2 * Mathf.Deg2Rad)),
                                     new Vector4(Mathf.Sin(thetha2 * Mathf.Deg2Rad), Mathf.Cos(thetha2 * Mathf.Deg2Rad) * Mathf.Cos(alpha2 * Mathf.Deg2Rad), -Mathf.Cos(thetha2 * Mathf.Deg2Rad) * Mathf.Sin(alpha2 * Mathf.Deg2Rad), r2 * Mathf.Sin(thetha2 * Mathf.Deg2Rad)),
                                     new Vector4(0, Mathf.Sin(alpha2 * Mathf.Deg2Rad), Mathf.Cos(alpha2 * Mathf.Deg2Rad), d2),
                                     new Vector4(0, 0, 0, 1));
 
-        // 计算 T3
+        // matrix T3
         Matrix4x4 T3 = new Matrix4x4(new Vector4(Mathf.Cos(thetha3 * Mathf.Deg2Rad), -Mathf.Sin(thetha3 * Mathf.Deg2Rad) * Mathf.Cos(alpha3 * Mathf.Deg2Rad), Mathf.Sin(thetha3 * Mathf.Deg2Rad) * Mathf.Sin(alpha3 * Mathf.Deg2Rad), r3 * Mathf.Cos(thetha3 * Mathf.Deg2Rad)),
                                     new Vector4(Mathf.Sin(thetha3 * Mathf.Deg2Rad), Mathf.Cos(thetha3 * Mathf.Deg2Rad) * Mathf.Cos(alpha3 * Mathf.Deg2Rad), -Mathf.Cos(thetha3 * Mathf.Deg2Rad) * Mathf.Sin(alpha3 * Mathf.Deg2Rad), r3 * Mathf.Sin(thetha3 * Mathf.Deg2Rad)),
                                     new Vector4(0, Mathf.Sin(alpha3 * Mathf.Deg2Rad), Mathf.Cos(alpha3 * Mathf.Deg2Rad), d3),
                                     new Vector4(0, 0, 0, 1));
 
-        // 计算 T03
+        // matrix T03
         Matrix4x4 T03 = T1.transpose * T2.transpose * T3.transpose;
 
         Matrix4x4 R03 = new Matrix4x4(T03.GetColumn(0), T03.GetColumn(1), T03.GetColumn(2), Vector4.zero);
 
-        // 计算 R03T
+        // matrix R03T
         Matrix4x4 R03T = R03.transpose;
 
-        // 计算 R36
+        // matrix R36
         Matrix4x4 R36 = R03T * R.transpose;
 
         // calculate thetha4
@@ -169,7 +167,7 @@ public class InverseKin : MonoBehaviour
         StartCoroutine(LoopWithDelay(q01, q02, q03, q04, q05, q06));
     }
 
-    public void BackToInitPos()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void BackToInitPos() // function to move robot tot initial position
     {
         thetha1 = 0;
         thetha2 = 90;
@@ -196,7 +194,7 @@ public class InverseKin : MonoBehaviour
         StartCoroutine(LoopWithDelay(q01, q02, q03, q04, q05, q06));
     }
 
-    public void DrillPrePosition()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void DrillPrePosition() // calculate ik for the given point
     {
         ox = 2.085f;
         oy = 1.38f;
@@ -206,7 +204,7 @@ public class InverseKin : MonoBehaviour
         CalculateInverseKinematics();
     }
 
-    public void DrillPosition()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void DrillPosition() // calculate ik for the given point
     {
         ox = 3.185f;
         oy = 1.38f;
@@ -216,7 +214,7 @@ public class InverseKin : MonoBehaviour
         CalculateInverseKinematics();
     }
 
-    public void MoveForward()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void MoveForward() // calculate ik for the given point
     {
         ox = 3.685f;
         oy = 1.38f;
@@ -226,7 +224,7 @@ public class InverseKin : MonoBehaviour
         CalculateInverseKinematics();
     }
 
-    public void MoveBackward()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void MoveBackward() // calculate ik for the given point
     {
         ox = 3.185f;
         oy = 1.38f;
@@ -235,7 +233,7 @@ public class InverseKin : MonoBehaviour
         CalculateInverseKinematics();
     }
 
-    public void RobotStop()//前三个为目标点坐标，后六个为起始点各关节角度
+    public void RobotStop() // stop the robot
     {
         RobotOperate = false;
     }
@@ -257,7 +255,7 @@ public class InverseKin : MonoBehaviour
             thetha6 = q06;
             ModifyRobot(q01, q02, q03, q04, q05, q06);
 
-            yield return new WaitForSeconds(0.05f);//延时0.5秒再继续向下执行
+            yield return new WaitForSeconds(0.05f); // how fast robot moves
 
             if (!RobotOperate)
             {

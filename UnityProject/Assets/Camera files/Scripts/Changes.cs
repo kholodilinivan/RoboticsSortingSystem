@@ -70,7 +70,7 @@ public class Changes : MonoBehaviour
     {
         las_pos_x.text = "0";
         las_pos_y.text = "0";
-        las_pos_z.text = "-950";
+        las_pos_z.text = "-1120";
     }
     // Laser Rotation
     public void LaserXYZ_rot()
