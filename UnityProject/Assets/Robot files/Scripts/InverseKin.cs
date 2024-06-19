@@ -18,11 +18,11 @@ public class InverseKin : MonoBehaviour
     // point to calculate ik
     public float ox = 627.86f; 
     public float oy = 1387.26f; 
-    public float oz = 112.73f; 
+    public float oz = 106.212f; 
 
     public bool RobotOperate;
 
-    private float Tm= 40;// trajectory steps
+    private float Tm= 40; // trajectory steps
 
     // links length
     private float L1 = 123.32f;

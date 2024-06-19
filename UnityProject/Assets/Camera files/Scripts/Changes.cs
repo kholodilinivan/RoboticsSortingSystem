@@ -64,7 +64,7 @@ public class Changes : MonoBehaviour
     //Laser Position
     public void LaserXYZ()
     {
-        LasActive.transform.localPosition = new Vector3((float.Parse(las_pos_y.text, CultureInfo.InvariantCulture))/1000, (float.Parse(las_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(las_pos_x.text, CultureInfo.InvariantCulture))/1000);
+        LasActive.transform.localPosition = new Vector3((float.Parse(las_pos_y.text, CultureInfo.InvariantCulture)), (float.Parse(las_pos_z.text, CultureInfo.InvariantCulture)), (float.Parse(las_pos_x.text, CultureInfo.InvariantCulture)));
     }
     public void Reset_LaserXYZ()
     {
@@ -88,7 +88,7 @@ public class Changes : MonoBehaviour
     // Position
     public void CVSystXY()
     {
-        CVSyst.transform.localPosition = new Vector3(-(float.Parse(cv_pos_y.text, CultureInfo.InvariantCulture)) / 1000, 0, (float.Parse(cv_pos_x.text, CultureInfo.InvariantCulture)) / 1000);
+        CVSyst.transform.localPosition = new Vector3(-(float.Parse(cv_pos_y.text, CultureInfo.InvariantCulture)), 0, (float.Parse(cv_pos_x.text, CultureInfo.InvariantCulture)));
     }
     public void Reset_CVSystXY()
     {
@@ -122,7 +122,7 @@ public class Changes : MonoBehaviour
     // Left pattern position
     public void LeftChessXYZ()
     {
-        LeftChess.transform.localPosition = new Vector3((float.Parse(leftchess_pos_x.text, CultureInfo.InvariantCulture))/1000, (float.Parse(leftchess_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(leftchess_pos_y.text, CultureInfo.InvariantCulture))/1000);
+        LeftChess.transform.localPosition = new Vector3((float.Parse(leftchess_pos_x.text, CultureInfo.InvariantCulture)), (float.Parse(leftchess_pos_z.text, CultureInfo.InvariantCulture)), (float.Parse(leftchess_pos_y.text, CultureInfo.InvariantCulture)));
     }
     public void Reset_LeftChessXYZ()
     {
@@ -146,7 +146,7 @@ public class Changes : MonoBehaviour
     // Rigth pattern position
     public void RightChessXYZ()
     {
-        RightChess.transform.localPosition = new Vector3((float.Parse(rightchess_pos_x.text, CultureInfo.InvariantCulture))/1000, (float.Parse(rightchess_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(rightchess_pos_y.text, CultureInfo.InvariantCulture))/1000);
+        RightChess.transform.localPosition = new Vector3((float.Parse(rightchess_pos_x.text, CultureInfo.InvariantCulture)), (float.Parse(rightchess_pos_z.text, CultureInfo.InvariantCulture)), (float.Parse(rightchess_pos_y.text, CultureInfo.InvariantCulture)));
     }
     public void Reset_RightChessXYZ()
     {
@@ -169,7 +169,7 @@ public class Changes : MonoBehaviour
     // Bottom pattern position
     public void BottomChessXYZ()
     {
-        BottomChess.transform.localPosition = new Vector3((float.Parse(bottomchess_pos_x.text, CultureInfo.InvariantCulture)) / 1000, (float.Parse(bottomchess_pos_z.text, CultureInfo.InvariantCulture)) / 1000, (float.Parse(bottomchess_pos_y.text, CultureInfo.InvariantCulture)) / 1000);
+        BottomChess.transform.localPosition = new Vector3((float.Parse(bottomchess_pos_x.text, CultureInfo.InvariantCulture)), (float.Parse(bottomchess_pos_z.text, CultureInfo.InvariantCulture)), (float.Parse(bottomchess_pos_y.text, CultureInfo.InvariantCulture)));
     }
     public void Reset_BottomChessXYZ()
     {
@@ -187,88 +187,5 @@ public class Changes : MonoBehaviour
         bottomchess_rot_x.text = "0";
         bottomchess_rot_y.text = "0";
         bottomchess_rot_z.text = "0";
-    }
-
-// Obstacles Config
-    public void LeftCubeToogle(bool newValue)
-    {
-        LeftCube.SetActive(newValue);
-    }
-    public void FrontCubeToogle(bool newValue)
-    {
-        FrontCube.SetActive(newValue);
-    }
-    public void RightCubeToogle(bool newValue)
-    {
-        RightCube.SetActive(newValue);
-    }
-
-    // Left cube position
-    public void LeftCubeXYZ()
-    {
-        LeftCube.transform.localPosition = new Vector3((float.Parse(leftcube_pos_x.text, CultureInfo.InvariantCulture))/1000, (float.Parse(leftcube_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(leftcube_pos_y.text, CultureInfo.InvariantCulture))/1000);
-    }
-    public void Reset_LeftCubeXYZ()
-    {
-        leftcube_pos_x.text = "-922";
-        leftcube_pos_y.text = "-158";
-        leftcube_pos_z.text = "-680";
-    }
-    // Left cube Rotation
-    public void LeftCubeXYZ_rot()
-    {
-        LeftCube.transform.localRotation = Quaternion.Euler(float.Parse(leftcube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(leftcube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(leftcube_rot_y.text, CultureInfo.InvariantCulture));
-    }
-    public void Reset_LeftCubeXYZ_rot()
-    {
-        leftcube_rot_x.text = "0";
-        leftcube_rot_y.text = "0";
-        leftcube_rot_z.text = "0";
-    }
-
-    // Front cube position
-    public void FrontCubeXYZ()
-    {
-        FrontCube.transform.localPosition = new Vector3((float.Parse(frontcube_pos_x.text, CultureInfo.InvariantCulture))/1000, (float.Parse(frontcube_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(frontcube_pos_y.text, CultureInfo.InvariantCulture))/1000);
-    }
-    public void Reset_FrontCubeXYZ()
-    {
-        frontcube_pos_x.text = "-843";
-        frontcube_pos_y.text = "1799";
-        frontcube_pos_z.text = "-680";
-    }
-    // Front cube Rotation
-    public void FrontCubeXYZ_rot()
-    {
-        FrontCube.transform.localRotation = Quaternion.Euler(float.Parse(frontcube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(frontcube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(frontcube_rot_y.text, CultureInfo.InvariantCulture));
-    }
-    public void Reset_FrontCubeXYZ_rot()
-    {
-        frontcube_rot_x.text = "0";
-        frontcube_rot_y.text = "0";
-        frontcube_rot_z.text = "0";
-    }
-
-    // Right cube position
-    public void RightCubeXYZ()
-    {
-        RightCube.transform.localPosition = new Vector3((float.Parse(rightcube_pos_x.text, CultureInfo.InvariantCulture))/1000, (float.Parse(rightcube_pos_z.text, CultureInfo.InvariantCulture))/1000, (float.Parse(rightcube_pos_y.text, CultureInfo.InvariantCulture))/1000);
-    }
-    public void Reset_RightCubeXYZ()
-    {
-        rightcube_pos_x.text = "521";
-        rightcube_pos_y.text = "1158";
-        rightcube_pos_z.text = "-680";
-    }
-    // Right cube Rotation
-    public void RightCubeXYZ_rot()
-    {
-        RightCube.transform.localRotation = Quaternion.Euler(float.Parse(rightcube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(rightcube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(rightcube_rot_y.text, CultureInfo.InvariantCulture));
-    }
-    public void Reset_RightCubeXYZ_rot()
-    {
-        rightcube_rot_x.text = "0";
-        rightcube_rot_y.text = "0";
-        rightcube_rot_z.text = "0";
     }
 }
