@@ -15,6 +15,12 @@ public class CanvasChanges : MonoBehaviour
     public InputField redcube_pos_x_cam, redcube_pos_y_cam, redcube_pos_z_cam, redcube_rot_x_cam, redcube_rot_y_cam, redcube_rot_z_cam,
     greencube_pos_x_cam, greencube_pos_y_cam, greencube_pos_z_cam, greencube_rot_x_cam, greencube_rot_y_cam, greencube_rot_z_cam,
     bluecube_pos_x_cam, bluecube_pos_y_cam, bluecube_pos_z_cam, bluecube_rot_x_cam, bluecube_rot_y_cam, bluecube_rot_z_cam;
+
+    public GameObject RedArea, GreenArea, BlueArea;
+    public InputField redcube_pos_x_area, redcube_pos_y_area, redcube_pos_z_area,
+    greencube_pos_x_area, greencube_pos_y_area, greencube_pos_z_area,
+    bluecube_pos_x_area, bluecube_pos_y_area, bluecube_pos_z_area;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +79,22 @@ public class CanvasChanges : MonoBehaviour
         bluecube_rot_x_cam.text = (BlueCube.transform.localEulerAngles.x).ToString();
         bluecube_rot_y_cam.text = (BlueCube.transform.localEulerAngles.z).ToString();
         bluecube_rot_z_cam.text = (BlueCube.transform.localEulerAngles.y).ToString();
+
+        // Sorting Area
+        // Red Cube
+        redcube_pos_x_area.text = (RedArea.transform.localPosition.y).ToString();
+        redcube_pos_y_area.text = (-RedArea.transform.localPosition.z).ToString();
+        redcube_pos_z_area.text = (-RedArea.transform.localPosition.x).ToString();
+
+        // Green Cube
+        greencube_pos_x_area.text = (GreenArea.transform.localPosition.y).ToString();
+        greencube_pos_y_area.text = (-GreenArea.transform.localPosition.z).ToString();
+        greencube_pos_z_area.text = (-GreenArea.transform.localPosition.x).ToString();
+
+        // Blue Cube
+        bluecube_pos_x_area.text = (BlueArea.transform.localPosition.y).ToString();
+        bluecube_pos_y_area.text = (-BlueArea.transform.localPosition.z).ToString();
+        bluecube_pos_z_area.text = (-BlueArea.transform.localPosition.x).ToString();
     }
     
     // Obstacles Config
@@ -87,56 +109,5 @@ public class CanvasChanges : MonoBehaviour
     public void BlueCubeToogle(bool newValue)
     {
         BlueCube.SetActive(newValue);
-    }
-
-    // Red cube position
-    public void Reset_RedCubeXYZ()
-    {
-        redcube_pos_x.text = "414";
-        redcube_pos_y.text = "-196";
-        redcube_pos_z.text = "119.3";
-        RedCube.transform.localPosition = new Vector3(-float.Parse(redcube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(redcube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(redcube_pos_y.text, CultureInfo.InvariantCulture));
-    }
-    // Red cube Rotation
-    public void Reset_RedCubeXYZ_rot()
-    {
-        redcube_rot_x.text = "0";
-        redcube_rot_y.text = "0";
-        redcube_rot_z.text = "0";
-        RedCube.transform.localRotation = Quaternion.Euler(float.Parse(redcube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(redcube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(redcube_rot_y.text, CultureInfo.InvariantCulture));
-    }
-
-    // Green cube position
-    public void Reset_GreenCubeXYZ()
-    {
-        greencube_pos_x.text = "414";
-        greencube_pos_y.text = "-196";
-        greencube_pos_z.text = "199.3";
-        GreenCube.transform.localPosition = new Vector3(-float.Parse(greencube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(greencube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(greencube_pos_y.text, CultureInfo.InvariantCulture));
-    }
-    // Green cube Rotation
-    public void Reset_GreenCubeXYZ_rot()
-    {
-        greencube_rot_x.text = "0";
-        greencube_rot_y.text = "0";
-        greencube_rot_z.text = "0";
-        GreenCube.transform.localRotation = Quaternion.Euler(float.Parse(greencube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(greencube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(greencube_rot_y.text, CultureInfo.InvariantCulture));
-    }
-
-    // BLue cube position
-    public void Reset_BlueCubeXYZ()
-    {
-        bluecube_pos_x.text = "414";
-        bluecube_pos_y.text = "-196";
-        bluecube_pos_z.text = "390";
-        BlueCube.transform.localPosition = new Vector3(-float.Parse(bluecube_pos_x.text, CultureInfo.InvariantCulture), float.Parse(bluecube_pos_z.text, CultureInfo.InvariantCulture), -float.Parse(bluecube_pos_y.text, CultureInfo.InvariantCulture));
-    }
-    // Blue cube Rotation
-    public void Reset_BlueCubeXYZ_rot()
-    {
-        bluecube_rot_x.text = "0";
-        bluecube_rot_y.text = "0";
-        bluecube_rot_z.text = "0";
-        BlueCube.transform.localRotation = Quaternion.Euler(float.Parse(bluecube_rot_x.text, CultureInfo.InvariantCulture), float.Parse(bluecube_rot_z.text, CultureInfo.InvariantCulture), float.Parse(bluecube_rot_y.text, CultureInfo.InvariantCulture));
-    }
+    }    
 }

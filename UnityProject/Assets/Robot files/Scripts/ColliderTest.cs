@@ -70,4 +70,17 @@ public class ColliderTest : MonoBehaviour
         yield return new WaitForSeconds(3.7f);
         anim.GetComponent<Animator>().speed = 0f;
     }
+
+    public void GripperToogle(bool newValue)
+    {
+        if (newValue)
+        {
+            GrabObj();
+        }
+        else
+        {
+            ReleaseObj();
+        }
+
+    }
 }

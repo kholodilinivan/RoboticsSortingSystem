@@ -173,7 +173,7 @@ public class InverseKin : MonoBehaviour
         thetha2 = 90;
         thetha3 = 90;
         thetha4 = 0;
-        thetha5 = 0;
+        thetha5 = -90;
         thetha6 = 0;
 
         q[0] = thetha1;
@@ -194,41 +194,64 @@ public class InverseKin : MonoBehaviour
         StartCoroutine(LoopWithDelay(q01, q02, q03, q04, q05, q06));
     }
 
-    public void DrillPrePosition() // calculate ik for the given point
+    // Cubes IK
+    public void BlackCubePosition() // calculate ik for the given point
     {
-        ox = 2.085f;
-        oy = 1.38f;
-        oz = 2.32f;
+        ox = 856f;
+        oy = 858f;
+        oz = 106.212f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
     }
 
-    public void DrillPosition() // calculate ik for the given point
+    public void GreenCubePosition() // calculate ik for the given point
     {
-        ox = 3.185f;
-        oy = 1.38f;
-        oz = 2.32f;
+        ox = 1387.26f;
+        oy = -1224f;
+        oz = 106.212f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
     }
 
-    public void MoveForward() // calculate ik for the given point
+    public void BlueCubePosition() // calculate ik for the given point
     {
-        ox = 3.685f;
-        oy = 1.38f;
-        oz = 2.32f;
+        ox = 1387.26f;
+        oy = 627.8f;
+        oz = 106.212f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
     }
 
-    public void MoveBackward() // calculate ik for the given point
+    // Areas IK
+    public void BlackAreaPosition() // calculate ik for the given point
     {
-        ox = 3.185f;
-        oy = 1.38f;
-        oz = 2.32f;
+        ox = 1413.417f;
+        oy = -204.0424f;
+        oz = 0 + 120;
+
+        RobotOperate = true;
+        CalculateInverseKinematics();
+    }
+
+    public void GreenAreaPosition() // calculate ik for the given point
+    {
+        ox = 1413.417f;
+        oy = -636.9429f;
+        oz = 0 + 240f;
+
+        RobotOperate = true;
+        CalculateInverseKinematics();
+    }
+
+    public void BlueAreaPosition() // calculate ik for the given point
+    {
+        ox = 997.6165f;
+        oy = -636.9429f;
+        oz = 0 + 360f;
+
         RobotOperate = true;
         CalculateInverseKinematics();
     }
