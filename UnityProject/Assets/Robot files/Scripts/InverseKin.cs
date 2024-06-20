@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditorInternal;
+using System.Globalization;
 
 public class InverseKin : MonoBehaviour
 {
@@ -42,9 +43,9 @@ public class InverseKin : MonoBehaviour
 }
     void Update()
     {
-        ox = float.Parse(NewX.text);
-        oy = float.Parse(NewY.text);
-        oz = float.Parse(NewZ.text);
+        ox = float.Parse(NewX.text, CultureInfo.InvariantCulture);
+        oy = float.Parse(NewY.text, CultureInfo.InvariantCulture);
+        oz = float.Parse(NewZ.text, CultureInfo.InvariantCulture);
     }
 
     public void ChangeStateRobotOperate(bool state)
