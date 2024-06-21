@@ -1,5 +1,5 @@
 function [Dist] = cube_dist(I,i_,j_,camY,camX,camZ,lasY,lasX,las_dist,ocam) 
-Z=las_dist;
+Z=-las_dist;
 a = 1;
 x1=[];
 y1=[];

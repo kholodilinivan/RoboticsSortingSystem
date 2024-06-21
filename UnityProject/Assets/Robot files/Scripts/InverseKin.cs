@@ -31,7 +31,7 @@ public class InverseKin : MonoBehaviour
     private float L3 = 949.04f;
     private float L4 = 227.79f;
     private float L5 = 918.09f;
-    private float L6 = 698.24f;
+    private float L6 = 848.18f;
 
     // to calculate inverse kin manually
     public InputField NewX, NewY, NewZ;

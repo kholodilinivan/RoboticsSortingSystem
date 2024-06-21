@@ -64,13 +64,13 @@ public class Changes : MonoBehaviour
     //Laser Position
     public void LaserXYZ()
     {
-        LasActive.transform.localPosition = new Vector3((float.Parse(las_pos_y.text, CultureInfo.InvariantCulture)), (float.Parse(las_pos_z.text, CultureInfo.InvariantCulture)), (float.Parse(las_pos_x.text, CultureInfo.InvariantCulture)));
+        LasActive.transform.localPosition = new Vector3((float.Parse(las_pos_y.text, CultureInfo.InvariantCulture) / 1000), (float.Parse(las_pos_z.text, CultureInfo.InvariantCulture) / 1000), (float.Parse(las_pos_x.text, CultureInfo.InvariantCulture) / 1000));
     }
     public void Reset_LaserXYZ()
     {
         las_pos_x.text = "0";
         las_pos_y.text = "0";
-        las_pos_z.text = "-1120";
+        las_pos_z.text = "-950";
     }
     // Laser Rotation
     public void LaserXYZ_rot()

@@ -8,12 +8,12 @@ img1 = las_segm(image1);
 % Configuration
 load('Omni_Calib_Results_116m.mat'); % Calib parameters
 ocam_model = calib_data.ocam_model; % Calib parameters
-camX =-2.5; % Camera parameters
-camY = 6; % Camera parameters
-camZ = 3; % Camera parameters
-lasX = 1.5; % Laser Plane parameters
-lasY = -2.5; % Laser Plane parameters
-las_dist = 1220; % Laser Plane parameters
+camX =-3.5; % Camera parameters
+camY = 1; % Camera parameters
+camZ = 2.5; % Camera parameters
+lasX = 1; % Laser Plane parameters
+lasY = 2.5; % Laser Plane parameters
+las_dist = 950; % Laser Plane parameters
 CVsyst_x = 0; % CV System initial position
 CVsyst_y = 0; % CV System initial position 
 CVsyst_rot = 0; % CV System initial rotation

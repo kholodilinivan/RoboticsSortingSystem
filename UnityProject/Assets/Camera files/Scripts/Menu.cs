@@ -59,6 +59,6 @@ public class Menu : MonoBehaviour
     
     public void OpenWebSite()
     {
-        Application.OpenURL("https://github.com/kholodilinivan/CVSystem");
+        Application.OpenURL("https://github.com/kholodilinivan/RoboticsSortingSystem");
     }
 }
