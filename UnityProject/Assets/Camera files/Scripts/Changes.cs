@@ -88,7 +88,7 @@ public class Changes : MonoBehaviour
     // Position
     public void CVSystXY()
     {
-        CVSyst.transform.localPosition = new Vector3(-(float.Parse(cv_pos_y.text, CultureInfo.InvariantCulture)), 0, (float.Parse(cv_pos_x.text, CultureInfo.InvariantCulture)));
+        CVSyst.transform.localPosition = new Vector3(-(float.Parse(cv_pos_y.text, CultureInfo.InvariantCulture)) / 1000, 0, (float.Parse(cv_pos_x.text, CultureInfo.InvariantCulture) / 1000));
     }
     public void Reset_CVSystXY()
     {
