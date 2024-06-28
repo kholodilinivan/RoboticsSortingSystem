@@ -4,6 +4,7 @@ clear all
 image = imread('TestImages/image.jpg');
 image1 = imread('TestImages/image1.jpg');
 img = las_segm(image);
+figure;
 img1 = las_segm(image1);
 % Configuration
 load('Omni_Calib_Results_116m.mat'); % Calib parameters
