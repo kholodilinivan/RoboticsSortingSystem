@@ -5,15 +5,12 @@ x=0; % Roll -90
 y=180; % Pitch 0
 z=0; % Yaw 0
 RR = compose_rotation(x, y, z)
-%
 
-L1 = 0.0411; L2 = 0.1924; L3 = 0.306; L4 = 0.0759; L5 = 0.306; L6 = 0.2327;
+L1 = 123.32; L2 = 577.32; L3 = 949.04; L4 = 227.79; L5 = 918.09; L6 = 848.18;
 
-% thetha1 = 30; thetha2 = 15; thetha3 = 120; thetha4 = 5; thetha5 = -60; thetha6 = 10;
-% 4.085, 1.38, 2.32
-T = [RR(1,1)    RR(1,2)   RR(1,3)    0.197
-     RR(2,1)    RR(2,2)   RR(2,3)    0.462
-     RR(3,1)    RR(3,2)   RR(3,3)    0.21
+T = [RR(1,1)    RR(1,2)   RR(1,3)    1387.26
+     RR(2,1)    RR(2,2)   RR(2,3)    627.8
+     RR(3,1)    RR(3,2)   RR(3,3)    106.212
      0    0    0    1.0000];
      
 R = [T(1,1)    T(1,2)   T(1,3)
@@ -32,7 +29,7 @@ thetha1 = atan2d(yc,xc)
 % find thetha3
 a = sqrt(L4^2+L5^2);
 r = sqrt(xc^2+yc^2)-L1;
-s = zc - L2; % config I
+s = zc - L2; 
 b = sqrt(r^2+s^2);
 D = (L3^2+a^2-b^2)/(2*L3*a);
 fi = acosd(D);
@@ -42,8 +39,7 @@ alpha = atan2d(L4 ,L5);
 thetha3 = -(beta + alpha) + 90 % config II
 
 % find thetha2
-fi2 = atan2d(s,r); % config I
-% fi2 = atan2d(r,s); % config II
+fi2 = atan2d(s,r); 
 D1 = (L3^2 + b^2 - a^2)/(2*L3*b);
 fi1 = acosd(D1);
 % thetha2 = fi2 - fi1 % config I
@@ -83,16 +79,7 @@ thetha4 = atan2d(-R36(2,3),-R36(1,3))
 
 % find thetha6
 thetha6 = atan2d(-R36(3,2),R36(3,1))
-% thetha1 = 30; thetha2 = 15; thetha3 = 120; thetha4 = 5; thetha5 = -60; thetha6 = 10;
 
-
-
-
-% KUKA Robot arm RTB
-
-% L1 = 0.729; L2 = 1.546; L3 = 1.949; L4 = 0.084; L5 = 1.505; L6 = 0.968;
-% thetha1 = 0; thetha2 = 90; thetha3 = 0; thetha4 = 0; thetha5 = 0; thetha6 = 0;
-% thetha1 = 29.46; thetha2 = -0.48; thetha3 = 147.7; thetha4 = 0; thetha5 = 32.76; thetha6 = 150.54;
 alpha1 = 90; alpha2 = 0; alpha3 = 90; alpha4 = 270; alpha5 = 90; alpha6 = 0;
 r1 = L1; r2 = L3; r3 = L4; r4 = 0; r5 = 0; r6 = 0; 
 d1 = L2; d2 = 0; d3 = 0; d4 = L5; d5 = 0; d6 = L6;

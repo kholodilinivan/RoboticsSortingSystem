@@ -58,24 +58,24 @@ public class CanvasChanges : MonoBehaviour
         // Camera Origin
         // Red Cube
         redcube_pos_x_cam.text = (RedCube.transform.localPosition.y - 283).ToString();
-        redcube_pos_y_cam.text = (-RedCube.transform.localPosition.z + 65).ToString();
-        redcube_pos_z_cam.text = (-RedCube.transform.localPosition.x + 871.2f).ToString();
+        redcube_pos_y_cam.text = (RedCube.transform.localPosition.z + 1777).ToString();
+        redcube_pos_z_cam.text = (-RedCube.transform.localPosition.x - 1243).ToString();
         redcube_rot_x_cam.text = (RedCube.transform.localEulerAngles.x).ToString();
         redcube_rot_y_cam.text = (RedCube.transform.localEulerAngles.z).ToString();
         redcube_rot_z_cam.text = (RedCube.transform.localEulerAngles.y).ToString();
 
         // Green Cube
         greencube_pos_x_cam.text = (GreenCube.transform.localPosition.y - 283).ToString();
-        greencube_pos_y_cam.text = (-GreenCube.transform.localPosition.z - 997).ToString();
-        greencube_pos_z_cam.text = (-GreenCube.transform.localPosition.x + 871.2f).ToString();
+        greencube_pos_y_cam.text = (GreenCube.transform.localPosition.z + 1777).ToString();
+        greencube_pos_z_cam.text = (-GreenCube.transform.localPosition.x - 1243).ToString();
         greencube_rot_x_cam.text = (GreenCube.transform.localEulerAngles.x).ToString();
         greencube_rot_y_cam.text = (GreenCube.transform.localEulerAngles.z).ToString();
         greencube_rot_z_cam.text = (GreenCube.transform.localEulerAngles.y).ToString();
 
         // Blue Cube
         bluecube_pos_x_cam.text = (BlueCube.transform.localPosition.y - 283).ToString();
-        bluecube_pos_y_cam.text = (-BlueCube.transform.localPosition.z - 997.532f).ToString();
-        bluecube_pos_z_cam.text = (-BlueCube.transform.localPosition.x + +871.2f).ToString();
+        bluecube_pos_y_cam.text = (BlueCube.transform.localPosition.z + 1777).ToString();
+        bluecube_pos_z_cam.text = (-BlueCube.transform.localPosition.x - 1243).ToString();
         bluecube_rot_x_cam.text = (BlueCube.transform.localEulerAngles.x).ToString();
         bluecube_rot_y_cam.text = (BlueCube.transform.localEulerAngles.z).ToString();
         bluecube_rot_z_cam.text = (BlueCube.transform.localEulerAngles.y).ToString();
