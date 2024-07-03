@@ -19,7 +19,7 @@ public class InverseKin : MonoBehaviour
     // point to calculate ik
     public float ox = 627.86f; 
     public float oy = 1387.26f; 
-    public float oz = 106.212f; 
+    public float oz = 185.892f; 
 
     public bool RobotOperate;
 
@@ -31,7 +31,7 @@ public class InverseKin : MonoBehaviour
     private float L3 = 949.04f;
     private float L4 = 227.79f;
     private float L5 = 918.09f;
-    private float L6 = 848.18f;
+    private float L6 = 740.36f;
 
     // to calculate inverse kin manually
     public InputField NewX, NewY, NewZ;
@@ -143,7 +143,7 @@ public class InverseKin : MonoBehaviour
         thetha4 = Mathf.Atan2(-R36[1, 2], -R36[0, 2]) * Mathf.Rad2Deg;
 
         // calculate thetha5
-        thetha5 = Mathf.Acos(-R36[2, 2]) * Mathf.Rad2Deg - 180;
+        thetha5 = -Mathf.Acos(R36[2, 2]) * Mathf.Rad2Deg;
 
         // calculate thetha6
         thetha6 = Mathf.Atan2(-R36[2, 1], R36[2, 0]) * Mathf.Rad2Deg;
@@ -200,7 +200,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 856f;
         oy = 858f;
-        oz = 106.212f;
+        oz = 185.892f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
@@ -210,7 +210,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 1387.26f;
         oy = -1224f;
-        oz = 106.212f;
+        oz = 185.892f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
@@ -220,7 +220,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 1387.26f;
         oy = 627.8f;
-        oz = 106.212f;
+        oz = 185.892f;
 
         RobotOperate = true;
         CalculateInverseKinematics();
@@ -231,7 +231,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 1413.417f;
         oy = -204.0424f;
-        oz = 0 + 120;
+        oz = 0 + 200;
 
         RobotOperate = true;
         CalculateInverseKinematics();
@@ -241,7 +241,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 1413.417f;
         oy = -636.9429f;
-        oz = 0 + 240f;
+        oz = 0 + 300;
 
         RobotOperate = true;
         CalculateInverseKinematics();
@@ -251,7 +251,7 @@ public class InverseKin : MonoBehaviour
     {
         ox = 997.6165f;
         oy = -636.9429f;
-        oz = 0 + 360f;
+        oz = 0 + 400f;
 
         RobotOperate = true;
         CalculateInverseKinematics();

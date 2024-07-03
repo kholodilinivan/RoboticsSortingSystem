@@ -18,7 +18,9 @@ public class RobotTest : MonoBehaviour
     public GameObject J6;
     public float J6Angle;
 
-    public InputField J1string, J2string, J3string, J4string, J5string, J6string;
+    public GameObject EndEffector, BaseOrigin;
+
+    public InputField J1string, J2string, J3string, J4string, J5string, J6string, Xstring, Ystring, Zstring;
 
     // Start is called before the first frame update
     void Start()
@@ -42,5 +44,10 @@ public class RobotTest : MonoBehaviour
         J4string.text = J4Angle.ToString();
         J5string.text = J5Angle.ToString();
         J6string.text = (-J6Angle).ToString();
+
+        // EE position
+        Xstring.text = ((EndEffector.transform.position.z - BaseOrigin.transform.position.z) * 1000).ToString();
+        Ystring.text = ((EndEffector.transform.position.x - BaseOrigin.transform.position.x) * 1000).ToString();
+        Zstring.text = ((EndEffector.transform.position.y - BaseOrigin.transform.position.y) * 1000).ToString();
     }
 }
