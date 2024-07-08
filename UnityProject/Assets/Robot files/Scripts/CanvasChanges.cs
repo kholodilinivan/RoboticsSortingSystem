@@ -21,6 +21,10 @@ public class CanvasChanges : MonoBehaviour
     greencube_pos_x_area, greencube_pos_y_area, greencube_pos_z_area,
     bluecube_pos_x_area, bluecube_pos_y_area, bluecube_pos_z_area;
 
+    public GameObject ChessObj;
+    public InputField chess_pos_x_robot, chess_pos_y_robot, chess_pos_z_robot,
+    chess_pos_x_cam, chess_pos_y_cam, chess_pos_z_cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,6 +99,16 @@ public class CanvasChanges : MonoBehaviour
         bluecube_pos_x_area.text = (BlueArea.transform.localPosition.y).ToString();
         bluecube_pos_y_area.text = (-BlueArea.transform.localPosition.z).ToString();
         bluecube_pos_z_area.text = (-BlueArea.transform.localPosition.x).ToString();
+
+        // Chess
+        // Robot posiiton
+        chess_pos_x_robot.text = (ChessObj.transform.localPosition.y).ToString();
+        chess_pos_y_robot.text = (-ChessObj.transform.localPosition.z).ToString();
+        chess_pos_z_robot.text = (-ChessObj.transform.localPosition.x).ToString();
+        // Camera position
+        chess_pos_x_cam.text = (ChessObj.transform.localPosition.y - 283).ToString();
+        chess_pos_y_cam.text = (ChessObj.transform.localPosition.z + 1777).ToString();
+        chess_pos_z_cam.text = (-ChessObj.transform.localPosition.x - 1243).ToString();
     }
     
     // Obstacles Config
@@ -109,5 +123,11 @@ public class CanvasChanges : MonoBehaviour
     public void BlueCubeToogle(bool newValue)
     {
         BlueCube.SetActive(newValue);
-    }    
+    }
+
+    // Chess Config
+    public void ChessToogle(bool newValue)
+    {
+        ChessObj.SetActive(newValue);
+    }
 }

@@ -143,7 +143,7 @@ public class InverseKin : MonoBehaviour
         thetha4 = Mathf.Atan2(-R36[1, 2], -R36[0, 2]) * Mathf.Rad2Deg;
 
         // calculate thetha5
-        thetha5 = -Mathf.Acos(R36[2, 2]) * Mathf.Rad2Deg;
+        thetha5 = Mathf.Acos(-R36[2, 2]) * Mathf.Rad2Deg - 180;
 
         // calculate thetha6
         thetha6 = Mathf.Atan2(-R36[2, 1], R36[2, 0]) * Mathf.Rad2Deg;
