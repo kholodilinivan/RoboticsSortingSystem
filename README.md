@@ -5,11 +5,12 @@
 Файлы Matlab:  MatlabProjectAnswers 
 
 - Демо видео\
-Видео пояснения на русском - https://youtu.be/AGu0l6k7Z1o 
-<img width="550" alt="image" src="https://github.com/kholodilinivan/Kuka-Digital-Twin-With-Unity-and-TIA-Portal/assets/34764174/2d14943f-9381-480c-9f30-44db5c413415">
+Видео пояснения на русском - https://youtu.be/odmLUxuwIZQ
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/d834447c-2111-436a-8b0b-3e55ac16ecbf">
+
 
 ##
-1. ВВедение в курс | Введение в MATLAB - Часть 1 (Introduction to Course | Introduction to MATLAB - Part 1) \
+1. Введение в курс | Введение в MATLAB - Часть 1 (Introduction to Course | Introduction to MATLAB - Part 1) \
 Видео пояснения на русском - https://vk.com/video-40448015_456239420?list=ln-4Yz1RgVaUYCL43eI2v
 <img width="550" alt="image" src="https://github.com/user-attachments/assets/90bae93d-b6f7-49ec-b879-77d719b95476">
 
